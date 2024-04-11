@@ -17,4 +17,8 @@ public class ImageDao {
         image.setBase64Image(base64Image);
         return (long) imageMapper.insert(image);
     }
+
+    public String selectImageById(Long id) {
+        return imageMapper.selectById(id).getBase64Image();
+    }
 }

@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class AssessmentResponse {
+
     private double score;
     private String comment;
     private String paraphrase;
+    private String charName;
 }

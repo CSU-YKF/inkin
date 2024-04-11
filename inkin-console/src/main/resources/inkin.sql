@@ -1,6 +1,4 @@
-CREATE DATABASE IF NOT EXISTS inkin;
-
-CREATE TABLE IF NOT EXISTS inkin.assess
+CREATE TABLE IF NOT EXISTS PUBLIC.assess
 (
     id             int auto_increment
         primary key,
@@ -8,11 +6,12 @@ CREATE TABLE IF NOT EXISTS inkin.assess
     score          double       null,
     comment        varchar(512) not null,
     character_name varchar(32)  not null,
+    image_id       int          null,
     paraphrase     varchar(512) not null,
     create_time    datetime     null default now()
 );
 
-CREATE TABLE IF NOT EXISTS inkin.image
+CREATE TABLE IF NOT EXISTS PUBLIC.image
 (
     id          int auto_increment
         primary key,
@@ -20,11 +19,10 @@ CREATE TABLE IF NOT EXISTS inkin.image
     create_time datetime null default now()
 );
 
-CREATE TABLE IF NOT EXISTS inkin.user
+CREATE TABLE IF NOT EXISTS PUBLIC.inkin_user
 (
-    id          int auto_increment
-        primary key,
+    id          int auto_increment primary key,
     name        varchar(32)  not null,
-    password    varchar(128) null comment 'salted',
-    create_time datetime     null default now()
+    password    varchar(128) null,
+    create_time timestamp default current_timestamp()
 );

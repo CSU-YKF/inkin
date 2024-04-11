@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    @PostMapping
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         if (userDao.login(request.getName(), request.getPassword())) {
             return ResponseEntity.ok().body("Login successful");
